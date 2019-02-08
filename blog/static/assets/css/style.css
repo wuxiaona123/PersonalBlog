@@ -1,0 +1,387 @@
+/*
+Author       : Dreambuzz
+Author  Uri  : 
+Template Name: 
+Version      : 1.0                                          
+*/
+
+/*---------------
+
+ 1. Global Styles
+ 2. Navigation and Logo Section
+ 3. Hero Section
+ 4. service Section
+ 5. Services Section
+ 6. Team Section
+ 7. Parallax Section
+ 8. Price Rate Chart Section
+ 9. Clients Section
+ 10. Testimonials Section
+ 11. Contact Section
+ 12. Footer Section
+ 13. Back to Top
+ 14. TYPOGRAPHY STYLES
+ 15. Responsive Styles CSS
+---------------------------*/
+
+/*---------- 1. Global Styles ----------*/
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900|Merriweather|pacifico');
+html {
+    overflow-y: scroll;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: initial;
+}
+
+html,
+body {
+    height: 100%;
+    min-height: 100%;
+}
+
+body {
+    color: #777;
+    background-color: #fff;
+    font-weight: 400;
+    font-family: 'Merriweather', serif;
+    font-size: 14px;
+    line-height: 27px;
+}
+
+:focus {
+    outline: none;
+}
+
+a {
+    color: #444;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+a:hover,
+a:focus {
+    text-decoration: none;
+    outline: none;
+    color: #dc3545;
+}
+
+a.highlight:hover {
+    color: #aeaeae;
+}
+
+section {
+    background-position: center center;
+    background-size: cover;
+}
+
+ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+/*----- 15. Back to Top Button -----*/
+
+#back-to-top {
+    position: fixed;
+    color: #222;
+    z-index: 100;
+    bottom: 28px;
+    right: 32px;
+    display: none;
+    cursor: pointer;
+    border-radius: 100%;
+    height: 30px;
+    width: 30px;
+    display: block;
+    text-align: center;
+    opacity: 0;
+    background: #9757ea;
+    padding-top: 4px;
+    transition: background-color 0.1s linear;
+    -moz-transition: background-color 0.1s linear;
+    -webkit-transition: background-color 0.1s linear;
+    -o-transition: background-color 0.1s linear;
+}
+
+#back-to-top:hover {
+    color: #fff;
+    background-color: #1F2023;
+}
+
+#back-to-top .icon {
+    font-size: 10px;
+}
+
+/*---------- TYPOGRAPHY ----------*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    color: #000;
+    font-weight: 700;
+    text-transform: capitalize;
+    line-height: 1.2;
+}
+
+h2 {
+    line-height: 1.2;
+}
+
+h3 {
+    font-size: 22px;
+    line-height: 33px;
+}
+
+h4 {
+    font-size: 18px;
+    line-height: 28px;
+}
+
+h5 {
+    font-size: 14px;
+    line-height: 24px;
+}
+
+
+
+/*--------- SEction Heading ----------- */
+
+section {
+    padding: 80px 0px;
+}
+
+
+@media (max-width: 1200px) {
+    .h5-lg {
+        font-size: 17px;
+    }
+    .h1-xl {
+        font-size: 85px;
+        letter-spacing: -2px;
+    }
+    .h1-lg {
+        font-size: 85px;
+    }
+    .h1-md {
+        font-size: 70px;
+    }
+    .h2-lg {
+        font-size: 50px;
+        letter-spacing: normal;
+    }
+}
+
+@media (max-width: 992px) {
+    .lead.h5-md {
+        font-size: 16px;
+    }
+    .h2-lg {
+        font-size: 30px;
+        letter-spacing: normal;
+    }
+    .h1-xl {
+        font-size: 50px;
+        letter-spacing: -1px;
+    }
+    .h1-lg,
+    .h1-md,
+    .h1-sm {
+        font-size: 40px;
+    }
+    .h2-md {
+        font-size: 35px;
+    }
+}
+
+
+/*---------- Background Colors ----------*/
+
+.bg-black {
+    background-color: #000;
+}
+
+.bg-dark {
+    background-color: #0f1113;
+}
+
+.bg-gray {
+    background-color: #f8f8f8;
+}
+
+.bg-white {
+    background-color: #fff;
+}
+
+.bg-info {
+    background-color: #0363cd !important;
+}
+
+
+/*---------- BUTTONS ----------*/
+
+.btn {
+    font: 600 10.5px/1;
+    display: inline-block;
+    font-family: "Monstrette", sans-serif;
+    padding: 14px 48px 14px 48px;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+    border-radius: 0px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 13px;
+}
+
+.btn:focus,
+.btn:active,
+.btn:active:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.btn-hero,
+.btn-white:hover {
+    color: #fff;
+    background: #9757ea;
+    letter-spacing: 1px;
+}
+
+.btn-hero:focus {
+    color: #fff;
+}
+
+.btn-black,
+.btn-hero:hover {
+    background-color: rgba(0, 0, 0, 1);
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+}
+
+.btn-black:hover {
+    color: #fff;
+    background-color: rgba(190, 208, 148, 0.8);
+}
+
+.btn-black:focus {
+    color: #fff;
+}
+
+.btn-white {
+    background-color: rgba(255, 255, 255, .95);
+    color: rgba(0, 0, 0, .85);
+    border-color: rgba(255, 255, 255, .12);
+}
+
+.btn-white:focus {
+    color: #000;
+}
+
+.btn-white:active {
+    color: #fff;
+}
+
+.btn-trans-black {
+    background-color: transparent;
+    border: 1px solid rgba(0, 0, 0, .15);
+    color: rgba(0, 0, 0, .85);
+    letter-spacing: 1px;
+}
+
+.btn-trans-black:hover {
+    color: rgba(255, 255, 255, 1);
+    background-color: #000;
+    font-weight: 500;
+}
+
+.btn-trans-white {
+    background-color: transparent;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, .15);
+    color: rgba(255, 255, 255, .95);
+    letter-spacing: 1.5px;
+}
+
+.btn-trans-white:hover {
+    background-color: rgba(255, 255, 255, .95);
+    color: rgba(0, 0, 0, .85);
+    border-color: rgba(255, 255, 255, .12);
+}
+
+.btn-trans-white:active,
+.btn-trans-white:focus {
+    color: #fff;
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, .12);
+}
+
+.btn-p-gray {
+    text-decoration: underline;
+    color: #fff;
+}
+
+.btn-p-gray:hover {
+    text-decoration: underline;
+    color: #3F7130;
+}
+
+.btn-rounded {
+    border-radius: 2px;
+}
+
+.btn-circled {
+    border-radius: 25px;
+}
+
+.btn-fullwidth {
+    width: 100%;
+}
+
+.btn i {
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+}
+
+.btn:hover i {
+    padding-left: 10px;
+}
+
+
+.btn-trans-black:hover {
+    background: #28a745 !important;
+}
+
+/*---------- COLORS ----------*/
+
+/*-- Background Colors --*/
+
+.bg-black {
+    background-color: #000;
+}
+
+.bg-dark {
+    background-color: rgba(0, 0, 0, .96);
+}
+
+.bg-primary {
+    background-color: #0db8ca;
+}
+
+.bg-gray {
+    background-color: #f2f4ec;
+}
+
+.bg-white {
+    background-color: #fff;
+}

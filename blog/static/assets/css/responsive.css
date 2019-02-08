@@ -1,0 +1,111 @@
+/* Responsive styles
+================================================== */
+
+/* Large Devices, Wide Screens */
+
+@media (min-width: 1200px) {
+    .dropdown i {
+        /*display: none;*/
+    }
+
+
+
+}
+
+
+/* Medium Devices, Desktops */
+
+@media (min-width: 992px) {}
+
+/* Small Devices, Tablets */
+
+@media (min-width: 767px) and (max-width: 991px) {
+
+    .navbar-toggler {
+        float: right;
+        margin-top: 20px;
+    }
+
+    .blog-post-content {
+        margin-top: 30px;
+    }
+    
+    .blog-post-title {
+        font-size: 20px;
+        line-height: 30px;
+    }
+    
+    .popular-post{
+        margin-bottom: 40px;
+        display: block;
+    }
+    
+
+}
+
+
+/* Extra Small Devices, Phones */
+
+@media (min-width: 478px) and (max-width: 640px) {
+    .navbar-brand {
+        padding-left: 20px;
+    }
+    .blog-post-content {
+        margin-top: 30px;
+    }
+    
+    .blog-post-title {
+        font-size: 20px;
+        line-height: 30px;
+    }
+    
+    .popular-post{
+        margin-bottom: 40px;
+        display: block;
+    }
+    
+
+}
+
+
+
+/* Custom, iPhone Retina */
+
+@media (min-width: 320px) and (max-width: 478px) {
+
+    .navbar-toggler {
+        float: right;
+        margin-top: 20px;
+    }
+    .navbar-brand {
+        padding-left: 20px;
+    }
+
+    .blog-post-content {
+        margin-top: 30px;
+    }
+    
+    .blog-post-title ,.display-4{
+        font-size: 20px;
+        line-height: 30px;
+    }
+    
+    .popular-post{
+        margin-bottom: 40px;
+        display: block;
+    }
+    
+    .slick-slider-banner .main-banner-coontent {
+        width: 70%!important;
+        margin: 0 auto;
+    }
+    .main-banner-coontent h1 {
+        font-size: 20px;
+    }
+    #slider-carousel .carousel-control-next-icon, #slider-carousel .carousel-control-prev-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+        padding-top: 4px;
+    }
+}

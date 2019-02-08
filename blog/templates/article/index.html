@@ -1,0 +1,489 @@
+﻿{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="blog,resposive,sailor,bootstrap4,modern,html,html5,personal blog,agency blog,video,grid,Clean">
+    <meta name="author" content="Dreambuzz">
+    
+
+    <title>Sailor-Responsive html5 Blog Theme</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!--  Icon Font stylesheet  -->
+    <link href="{% static 'assets/css/icofont.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/font-awesome.css' %}" rel="stylesheet">
+    <!--   Common stylesheet  -->
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+    <!--   Custom stylesheet  -->
+    <link href="{% static 'assets/css/blog.css' %}" rel="stylesheet">
+    <!--   Responsive stylesheet  -->
+    <link href="{% static 'assets/css/responsive.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+
+    <header class="blog-header">
+        <!--     Main Menu  -->
+        <nav class="navbar navbar-expand-lg  center-navigation shadow-lg " id="center-navigation">
+            <div class="container">
+                <a class="navbar-brand" href="#"><img class="logo-dark d-sm-block d-lg-none " src="{% static 'assets/images/logo.png' %}" alt="Logo-side"></a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"><i class="icofont icofont-navigation-menu"></i> </span>
+                  </button>
+
+                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Home
+                                </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="index-main.html">Home Main</a>
+                                <a class="dropdown-item" href="index-header2.html">Home Header2 </a>
+                                <a class="dropdown-item" href="index-header3.html">Home Header3 </a>
+                                <a class="dropdown-item" href="index-classic.html">Home Classic</a>
+                                <a class="dropdown-item" href="index-list.html">Home List</a>
+                                <a class="dropdown-item" href="index-grid.html">Home Grid</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Features
+                                </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                                <a class="dropdown-item" href="sidebar.html">Sidebar Left</a>
+                                <a class="dropdown-item" href="video.html">Video post</a>
+                                <a class="dropdown-item" href="single-blog.html">Single post</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Pages
+                                </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                                <a class="dropdown-item" href="about.html">About Me</a>
+                                <a class="dropdown-item" href="contact.html">Contact</a>
+                                <a class="dropdown-item" href="404.html">404</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll header-logo d-none d-lg-block" href="#"><img src="{% static 'assets/images/logo.png' %}" alt="Logo" class="img-fluid"></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  categories
+                                </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown4">
+                                <a class="dropdown-item" href="lifestyle.html">Lifestyle</a>
+                                <a class="dropdown-item" href="hairstyle.html">hairstyle</a>
+                                <a class="dropdown-item" href="fashion.html">Fashion</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll " href="video.html">Video</a>
+                        </li> 
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll " href="http://www.17sucai.com">Buy Now</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="banner-bg jumbotron p-3 p-md-5 text-white">
+        <div class="dark-overlay"></div>
+        <div class="container">
+            <div class="col-md-8 px-0 mx-auto ">
+                <div class="text-center main-banner-coontent">
+                    <h1 class="display-4 text-white">Become World of Supermodel New York </h1>
+                    <p class="my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.</p>
+                    <a href="#" class="btn btn-danger mt-3 btn-rounded">View POst</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <div class="card flex-md-row mb-4 box-shadow card-block">
+                    <img class="flex-auto d-none d-lg-block img-fluid" src="{% static 'assets/images/blog/blog-3.jpg' %}" alt="Card image cap">
+                    <div class="card-body d-flex flex-column align-items-start">
+                        <strong class="d-inline-block mb-2 text-primary">World</strong>
+
+                        <h4 class="mb-0 card-title">
+                            <a class="text-dark " href="#">High Fashion Gallery art</a>
+                        </h4>
+                        <p class="text-muted">17th Jnauray 2018</p>
+                        <p class="card-text mb-auto mt-1">This is a wider card with supporting text below as a natural.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card flex-md-row mb-4 box-shadow card-block">
+                    <img class="flex-auto d-none d-lg-block img-fluid" src="{% static 'assets/images/blog/blog-2.jpg' %}" alt="Card image cap">
+
+                    <div class="card-body d-flex flex-column align-items-start">
+                        <strong class="d-inline-block mb-2 text-success">Design</strong>
+                        <h4 class="mb-0 card-title">
+                            <a class="text-dark" href="#">Epitom Of Love </a>
+                        </h4>
+                        <p class="text-muted">17th Jnauray 2018</p>
+                        <p class="card-text mb-auto mt-1">This is a wider card with supporting text below as a natural.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="row">
+            <div class="col-md-8 blog-main col-sm-7">
+
+                <div class="blog-post">
+                    <div class="blog-block-img">
+                        <img src="{% static 'assets/images/blog/blog-big.jpg' %}" alt="" class="img-fluid">
+                    </div>
+                    <p class="blog-post-cat">Fashion,Lifestyle</p>
+                    <a href="#">
+                        <h2 class="blog-post-title">Only Photography What You Love Women Modelling </h2>
+                    </a>
+
+
+                    <p class="blog-post-meta"> <img src="{% static 'assets/images/blog/widget-3.jpg' %}" alt="" class="img-fluid small">January 1, 2014 by <a href="#">Mark</a></p>
+                    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+
+                    <a href="#" class="read-more">Continue Reading</a>
+                </div>
+                <!-- /.blog-post -->
+
+
+                <div class="blog-post">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="blog-post-thumbnail-zone">
+                                <img src="{% static 'assets/images/blog/pic-1.jpg' %}" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class=" col-lg-6">
+                            <div class="blog-post-content ">
+                                <p class="blog-post-cat mt0">Fashion,Lifestyle</p>
+                                <a href="#">
+                                    <h3>Only Photography What You Love Women Modelling </h3>
+                                </a>
+
+                                <p class="blog-post-meta"> <img src="{% static 'assets/images/blog/widget-3.jpg' %}" alt="" class="img-fluid small">January 1, 2014 by <a href="#">Mark</a></p>
+                                <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+
+                                <a href="#" class="read-more">Continue Reading</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.blog-post LList -->
+
+                <div class="blog-post">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="blog-post-thumbnail-zone">
+                                <img src="{% static 'assets/images/blog/pic-2.jpg' %}" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class=" col-lg-6">
+                            <div class="blog-post-content ">
+                                <p class="blog-post-cat mt0">Lifestyle</p>
+                                <a href="#">
+                                    <h3>Youtube Black and White Photography Ideas </h3>
+                                </a>
+
+                                <p class="blog-post-meta"> <img src="{% static 'assets/images/blog/widget-3.jpg' %}" alt="" class="img-fluid small">January 1, 2014 by <a href="#">Mark</a></p>
+                                <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+
+                                <a href="#" class="read-more">Continue Reading</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.blog-post LList -->
+
+                <div class="blog-post">
+                    <div class="blog-block-img">
+                        <img src="{% static 'assets/images/blog/inner-4.jpg' %}" alt="" class="img-fluid">
+                    </div>
+                    <p class="blog-post-cat">Fashion,Lifestyle</p>
+                    <a href="#">
+                        <h2 class="blog-post-title">Only Photography What You Love Women Modelling </h2>
+                    </a>
+
+
+                    <p class="blog-post-meta"> <img src="{% static 'assets/images/blog/widget-3.jpg' %}" alt="" class="img-fluid small">January 1, 2014 by <a href="#">Mark</a></p>
+                    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+
+                    <a href="#" class="read-more">Continue Reading</a>
+                </div>
+                <!-- /.blog-post -->
+
+                <!-- Blog Paginator -->
+
+                <nav aria-label="navigation ">
+                    <ul class="pagination blog-pagination justify-content-end">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Older</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Newer</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+            <!-- /.blog-main -->
+
+
+
+            <!-- blog-main SIDEBAR RIGHT -->
+            <aside class="col-md-4 blog-sidebar col-sm-5">
+
+                <div class="p-3 mb-3 bg-light rounded text-center">
+                    <div class="top-header ">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Username">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fa fa-search"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-3 mb-3 bg-light rounded text-center">
+                    <div class="sidebar-about">
+                        <div class="about-img">
+                            <img src="{% static 'assets/images/blog/author.jpeg.jpg' %}" alt="" class="img-fluid rounded-circle">
+                        </div>
+                        <h4 class="py-2">Hi! -That's Me</h4>
+                        <p class="mb-3">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+
+                        <ul class="list-inline social-link">
+                            <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="fa fa-rss"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="py-3">
+                    <div class="sidebar-block">
+                        <h4 class="sidebar-title">Categories</h4>
+                        <ol class="list-unstyled mb-0">
+                            <li><a href="#">Fashion <span>(10)</span></a></li>
+                            <li><a href="#">Lifestyle <span>(5)</span></a></li>
+                            <li><a href="#">Hairstyle <span>(7)</span></a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="py-3">
+                    <div class="sidebar-block latest-post">
+                        <h4 class="sidebar-title">Latest Posts</h4>
+                        <ol class="list-unstyled">
+                            <li>
+                                <a href="#">
+                                    <div class="rpost-img">
+                                        <img src="{% static 'assets/images/blog/widget-4.jpg' %}" alt="" class="img-fluid">
+                                    </div>
+                                    <h5>High Fashion Black and White Photoshoot Art</h5>
+                                    <p class="text-muted">20 June 2018 </p>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <div class="rpost-img">
+                                        <img src="{% static 'assets/images/blog/widget-2.jpg' %}" alt="" class="img-fluid">
+                                    </div>
+                                    <h5>Spanish Women are the Epitome of Beautiful</h5>
+                                    <p class="text-muted">20 June 2018 </p>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <div class="rpost-img">
+                                        <img src="{% static 'assets/images/blog/widget-3.jpg' %}" alt="" class="img-fluid">
+                                    </div>
+                                    <h5>Beauty you lIfe with natural</h5>
+                                    <p class="text-muted">20 June 2018</p>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <div class="rpost-img">
+                                        <img src="{% static 'assets/images/blog/widget-1.jpg' %}" alt="" class="img-fluid">
+                                    </div>
+                                    <h5>Spanish Women are the Epitome of Beautiful</h5>
+                                    <p class="text-muted">20 June 2018</p>
+                                </a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+
+                <div class="py-3">
+                    <div class="sidebar-block instagram">
+                        <h4 class="sidebar-title">Instagram</h4>
+
+                        <div class="instgram-posts">
+                            <a href="#"><img src="{% static 'assets/images/blog/widget-1.jpg' %}" alt="" class="img-fluid"></a>
+                            <a href="#"><img src="{% static 'assets/images/blog/widget-2.jpg' %}" alt="" class="img-fluid"></a>
+                            <a href="#"><img src="{% static 'assets/images/blog/widget-3.jpg' %}" alt="" class="img-fluid"></a>
+                            <a href="#"><img src="{% static 'assets/images/blog/widget-4.jpg' %}" alt="" class="img-fluid"></a>
+                            <a href="#"><img src="{% static 'assets/images/blog/widget-1.jpg' %}" alt="" class="img-fluid"></a>
+                            <a href="#"><img src="{% static 'assets/images/blog/widget-2.jpg' %}" alt="" class="img-fluid"></a>
+                            <a href="#"><img src="{% static 'assets/images/blog/widget-3.jpg' %}" alt="" class="img-fluid"></a>
+                            <a href="#"><img src="{% static 'assets/images/blog/widget-4.jpg' %}" alt="" class="img-fluid"></a>
+                            <a href="#"><img src="{% static 'assets/images/blog/widget-1.jpg' %}" alt="" class="img-fluid"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="py-3">
+                    <div class="">
+                        <h4 class="sidebar-title">Tags</h4>
+                        <div class="list-unstyled mb-0 tags-cloud">
+                            <a href="#">Beauty</a>
+                            <a href="#">fashion</a>
+                            <a href="#">Hair</a>
+                            <a href="#">Makeup</a>
+                            <a href="#">Life</a>
+                            <a href="#">Sunshine</a>
+                            <a href="#">Light</a>
+                            <a href="#">fashion</a>
+                            <a href="#">Hair</a>
+                            <a href="#">Makeup</a>
+                            <a href="#">Life</a>
+                            <a href="#">Sunshine</a>
+                            <a href="#">Light</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="py-3">
+                    <div class="bg-light text-center subscribe">
+                        <h4 class="sidebar-title">Subscribe Now</h4>
+                        <p class="text-muted">Subscribe For latest Newsletter</p>
+                        <form action="#">
+                            <input type="text" class="form-control" placeholder="Type Your Email here">
+                            <a href="#" class="btn btn-sm  btn-danger btn-rounded">Subscribe</a>
+                        </form>
+                        <p class="font-italic">Don't worry ! We don't spam</p>
+                    </div>
+                </div>
+
+            </aside>
+            <!-- /.blog-sidebar -->
+        </div>
+        <!-- /.row -->
+
+    </main>
+    <!-- /.container -->
+    <div class="popular-wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mx-auto">
+                    <div class="post-header border-bottom text-center">
+                        <h3 class="">Popular post</h3>
+                        <p>Obcaecati voluptatem hic ducimus maiores accusantium adipisci aspernatur accusantium adipisci aspernatur.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <a class="popular-post" href="">
+                    <img src="{% static 'assets/images/blog/blog-img1.jpg' %}" alt="" class="img-fluid">
+                    
+                    <div class="post-content">
+                        <h4 class="ptitle"> Messenger Women's Leather Bag Design Idea</h4>
+                        <p class="text-muted">January 16, 2018</p>
+                    </div>
+                 </a>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <a class="popular-post" href="">
+                    <img src="{% static 'assets/images/blog/blog-img2.jpg' %}" alt="" class="img-fluid">
+                    
+                    <div class="post-content">
+                        <h4 class="ptitle"> Messenger Women's Leather Bag Design Idea</h4>
+                        <p class="text-muted">January 16, 2018</p>
+                    </div>
+                 </a>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <a class="popular-post" href="">
+                    <img src="{% static 'assets/images/blog/blog-img3.jpg' %}" alt="" class="img-fluid">
+                    
+                    <div class="post-content">
+                        <h4 class="ptitle"> Messenger Women's Leather Bag Design Idea</h4>
+                        <p class="text-muted">January 16, 2018</p>
+                    </div>
+                 </a>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <a class="popular-post" href="">
+                    <img src="{% static 'assets/images/blog/blog-img1.jpg' %}" alt="" class="img-fluid">
+                    
+                    <div class="post-content">
+                        <h4 class="ptitle"> Messenger Women's Leather Bag Design Idea</h4>
+                        <p class="text-muted">January 16, 2018</p>
+                    </div>
+                 </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="blog-footer">
+
+        <div class="footer-social">
+            <a href="#" target="_blank" class="fa fa-facebook"></a>
+            <a href="#" target="_blank" class="fa fa-behance"></a>
+            <a href="#" target="_blank" class="fa fa-twitter"></a>
+            <a href="#" target="_blank" class="fa fa-linkedin"></a>
+            <a href="#" target="_blank" class="fa fa-google-plus"></a>
+            <a href="#" target="_blank" class="fa fa-youtube"></a>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit integer a urna vitae sem tempus.</p>
+        <p>2018.Copyright Reserved for <a href="#">Personal</a> by <a href="http://www.bootstrapmb.com/">Dreambuzz</a>.</p>
+        <p>
+            <a href="#">Back to top</a>
+        </p>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <script src="{% static 'assets/js/jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!--  Custom js  -->
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+</body>
+</html>
