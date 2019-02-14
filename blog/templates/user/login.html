@@ -1,0 +1,48 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>博客登录</title>
+	<meta name="keywords" content="博客登录">
+	<meta name="content" content="博客登录">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <link type="text/css" rel="stylesheet" href="{% static 'assets/css/login.css' %}">
+    <script type="text/javascript" src="{% static 'assets/js/jquery.min.js' %}"></script>
+</head>
+<body class="login_bj" style="background:url({% static 'assets/images/login/bj_zhuce.jpg' %}) no-repeat top center;">
+<div class="zhuce_body">
+    <div class="zhuce_kong login_kuang">
+    	<div class="zc" style="height: 300px;">
+        	<div class="bj_bai" style="height: 300px;">
+            <h3>登录</h3>
+       	  	  <form action="" method="post">
+                  {% csrf_token %}
+                <input name="nickname" value="{{ request.POST.nickname }}" type="text" class="kuang_txt" placeholder="昵称">
+                  <p>{{ form.errors.nickname }}</p>
+                <input name="password" value="{{ request.POST.password }}" type="password" class="kuang_txt" placeholder="密码">
+                  <p>{{ form.errors.password }}</p>
+                <div>
+               		<a href="#">忘记密码？</a>
+                    <input name="" type="checkbox" value="" checked>
+                    <span>记住我</span>
+                </div>
+                <input name="登录" type="submit" class="btn_zhuce" value="登录">
+                </form>
+            </div>
+        	<div class="bj_right" style="height: 300px;">
+            	<p>使用以下账号直接登录</p>
+                <a href="#" class="zhuce_qq">QQ注册</a>
+                <a href="#" class="zhuce_wb">微博注册</a>
+                <a href="#" class="zhuce_wx">微信注册</a>
+                <p>还没有账号？<a href="{% url 'user:register' %}">立即注册</a></p>
+            
+            </div>
+        </div>
+        <P>juanjuan blog&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欢迎您登录！</P>
+    </div>
+
+</div>
+    
+</body>
+</html>

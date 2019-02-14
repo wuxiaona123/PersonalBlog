@@ -1,0 +1,142 @@
+﻿{% extends 'commen/parent.html' %}
+{% load static %}
+
+{% block title %}
+    发帖
+{% endblock %}
+
+{% block headlink %}
+    <link rel="stylesheet" type="text/css" href="{% static 'jQueryBootstarpsummernote/dist/bootstrap.css' %}">
+    <link href="{% static 'jQueryBootstarpsummernote/dist/summernote.css' %}" rel="stylesheet">
+
+    <script src="{% static 'jQueryBootstarpsummernote/js/jquery.min.js' %}"></script>
+    <script src="{% static 'jQueryBootstarpsummernote/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'jQueryBootstarpsummernote/dist/summernote.js' %}"></script>
+    <script src="{% static 'jQueryBootstarpsummernote/dist/lang/summernote-zh-CN.js' %}"></script>    <!-- 中文-->
+
+    <style>
+        .m {
+            width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+
+    <script>
+        $(function () {
+            $('.summernote').summernote({
+                height: 200,
+                tabsize: 2,
+                lang: 'zh-CN'
+            });
+        });
+    </script>
+    {#    <script src="/static/tiny_mce/tiny_mce.js"></script>#}
+    {#    <script>#}
+    {#        tinyMCE.init({#}
+    {#            'mode': 'textareas',#}
+    {#            'theme': 'advanced',#}
+    {#            'width': 450,#}
+    {#            'height': 300#}
+    {#        })#}
+    {#    </script>#}
+{% endblock %}
+
+{% block nav %}
+    {% include 'commen/header.html' %}
+{% endblock %}
+
+
+{% block content %}
+    <div class="page-header jumbotron p-3 p-md-5 text-white mb-0" style="height: 300px;">
+        <div class="dark-overlay"></div>
+        <div class="container">
+            <div class="col-md-6 px-0 mx-auto ">
+                <div class="text-center page-banner-coontent">
+                    <h2>Share with you</h2>
+                    <p>好咖啡要和朋友一起品尝，好技术也要和朋友一起分享。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-sm-12 mx-auto">
+                    <div class="contact-form text-center">
+                        <form method="post" action="">
+                            {% csrf_token %}
+                            <div style="position: absolute;left: 0;top:20px;">
+                                <span>标签：</span>
+                                <select name="tagid">
+                                    {% for foo in tag %}
+                                        <option value="{{ foo.pk }}">{{ foo.tagname }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div style="position: absolute;left: 0;top:60px;">
+                                <span>标题：</span>
+                                <input type="text" name="articletitle">
+                            </div>
+                            <div class="m" style="margin-top: 100px;text-align: left;">
+                                <textarea class="summernote" name="editordata"></textarea>
+                            </div>
+
+
+                            <br>
+                            <input type="submit" value="提交帖子" class="btn btn-default">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+
+{% block footer %}
+    {% include 'commen/footer.html' %}
+{% endblock %}
+
+{% block footerjs %}
+    <script type="text/javascript">
+        // 运行summernote
+        {#$('.summernote').summernote({#}
+        {#    height: 400,#}
+        {#    width: 800,#}
+        {#    callbacks: {#}
+        {#        onImageUpload: function (files, editor, $editable) {#}
+        {#            sendFile(files);#}
+        {#        }#}
+        {#    }#}
+        {#{);#}
+        {##}
+        {#function sendFile(files) {#}
+        {#    var data = new FormData();#}
+        {#    console.log(files[0]);#}
+        {#    data.append("ajaxTaskFile", files[0]);#}
+        {#    $.ajax({#}
+        {#        data: data,#}
+        {#        type: "POST",#}
+        {#        url: "{% url 'article:summernoteimg' %}",#}
+        {#        cache: false,#}
+        {#        contentType: false,#}
+        {#        processData: false,#}
+        {#        success: function (data) {#}
+        {#            console.log(111, data);#}
+        {#$('.summernote').summernote('insertImage', data.pathname);#}
+        {#        },#}
+        {#        error: function () {#}
+        {#            alert("上传失败");#}
+        {#        }#}
+        {#    });#}
+        {#}#}
+
+            // 判断是否登录
+            var islogin = "{{ islogin }}";
+            if (islogin == '') {
+                window.location.href = "{% url 'user:register' %}"
+            }
+    </script>
+{% endblock %}

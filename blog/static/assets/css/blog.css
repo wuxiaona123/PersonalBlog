@@ -893,6 +893,14 @@ header {
     background-size:cover ;
 }
 
+/*.page-detail{*/
+    /*position: relative;*/
+    /*background: url("../images/banner/bn.jpg");*/
+    /*-webkit-background-size: cover;*/
+    /*background-size:cover ;*/
+/*}*/
+
+
 .page-banner-coontent{
     padding: 40px 0px;
 }

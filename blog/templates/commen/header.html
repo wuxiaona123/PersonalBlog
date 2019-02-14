@@ -4,7 +4,7 @@
     <nav class="navbar navbar-expand-lg  center-navigation shadow-lg " id="center-navigation">
         <div class="container">
             <a class="navbar-brand" href="#"><img class="logo-dark d-sm-block d-lg-none "
-                                                  src="{% static 'assets/images/logo.png' %}" alt="Logo-side"></a>
+                                                  src="{% static 'assets/images/logos.png' %}" alt="Logo-side"></a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,63 +14,39 @@
             <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Home
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="index-main.html">Home Main</a>
-                            <a class="dropdown-item" href="index-header2.html">Home Header2 </a>
-                            <a class="dropdown-item" href="index-header3.html">Home Header3 </a>
-                            <a class="dropdown-item" href="index-classic.html">Home Classic</a>
-                            <a class="dropdown-item" href="index-list.html">Home List</a>
-                            <a class="dropdown-item" href="index-grid.html">Home Grid</a>
-                        </div>
+                        <a class="nav-link page-scroll " href="{% url 'article:home' %}?tagname=0">python</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Features
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                            <a class="dropdown-item" href="sidebar.html">Sidebar Left</a>
-                            <a class="dropdown-item" href="video.html">Video post</a>
-                            <a class="dropdown-item" href="single-blog.html">Single post</a>
-                        </div>
+                        <a class="nav-link page-scroll " href="{% url 'article:home' %}?tagname=1">前端</a>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Pages
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                            <a class="dropdown-item" href="about.html">About Me</a>
-                            <a class="dropdown-item" href="contact.html">Contact</a>
-                            <a class="dropdown-item" href="404.html">404</a>
-                        </div>
+                        <a class="nav-link page-scroll " href="{% url 'article:home' %}?tagname=2">java</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link page-scroll header-logo d-none d-lg-block" href="#"><img
-                                src="{% static 'assets/images/logo.png' %}" alt="Logo" class="img-fluid"></a>
+                        <a class="nav-link page-scroll header-logo d-none d-lg-block" href="{% url 'article:home' %}">
+                            <img src="{% static 'assets/images/logos.png' %}" alt="Logo" class="img-fluid">
+                        </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button"
+                        <a class="nav-link dropdown-toggle" href="javascript:;" id="navbarDropdown4" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            categories
+                            其他
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown4">
-                            <a class="dropdown-item" href="lifestyle.html">Lifestyle</a>
-                            <a class="dropdown-item" href="hairstyle.html">hairstyle</a>
-                            <a class="dropdown-item" href="fashion.html">Fashion</a>
+                            <a class="dropdown-item" href="{% url 'article:home' %}?tagname=3">php</a>
+                            <a class="dropdown-item" href="{% url 'article:home' %}?tagname=4">.net</a>
+                            <a class="dropdown-item" href="{% url 'article:home' %}?tagname=5">数据库</a>
+                            <a class="dropdown-item" href="{% url 'article:home' %}?tagname=6">测试</a>
+                            <a class="dropdown-item" href="{% url 'article:home' %}?tagname=7">C++</a>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll " href="video.html">Video</a>
+                        <a class="nav-link page-scroll " href="{% url 'article:publish' %}">发帖</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll " href="#">Buy Now</a>
+                        <a class="nav-link page-scroll " href="#">留言</a>
                     </li>
                 </ul>
             </div>

@@ -1,0 +1,80 @@
+﻿{% extends 'commen/parent.html' %}
+{% load static %}
+
+{% block title %}
+详情
+{% endblock %}
+
+
+{% block nav %}
+{% include 'commen/header.html' %}
+{% endblock %}
+
+
+{% block content %}
+      <div class="page-header jumbotron p-3 p-md-5 text-white">
+        <div class="dark-overlay"></div>
+        <div class="container">
+            <div class="col-md-6 px-0 mx-auto ">
+                <div class="text-center page-banner-coontent">
+                    <h2>分享是奉献的果实</h2>
+                    <p>分享（fēnxiǎng）的果实真甜！</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="row">
+            <!-- blog-main SIDEBAR RIGHT -->
+            <aside class="col-md-4 blog-sidebar col-sm-5">
+                <div class="p-3 mb-3 bg-light rounded text-center">
+                    <div class="sidebar-about">
+                        <div class="about-img">
+                            <img src="{% static 'assets/images/blog/lala.jpg' %}" alt="" class="img-fluid rounded-circle">
+                        </div>
+                        <h4 class="py-2">作者简介</h4>
+                        <p class="mb-3">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.（以后2.0版本，个人中心可修改个人资料）</p>
+
+                    </div>
+                </div>
+                <div class="py-3">
+                    <div class="sidebar-block">
+                        <h4 class="sidebar-title">贴子</h4>
+                        <ol class="list-unstyled mb-0">
+                            <li><a href="#">python <span>(10)</span></a></li>
+                            <li><a href="#">前端 <span>(5)</span></a></li>
+                            <li><a href="#">java <span>(7)</span></a></li>
+                        </ol>
+                    </div>
+                </div>
+            </aside>
+            <!-- /.blog-sidebar -->
+
+            <div class="col-md-8 blog-main col-sm-7">
+                <div class="blog-post">
+                    <p class="blog-post-cat">是什么标签</p>
+                    <a href="#">
+                        <h2 class="blog-post-title">帖子标题</h2>
+                    </a>
+                    <p class="blog-post-meta"> 创建时间：January 1, 2014 by <a href="#">Mark</a></p>
+                    <div>放富文本</div>
+                </div>
+                <!-- /.blog-post -->
+
+            </div>
+            <!-- /.blog-main -->
+        </div>
+        <!-- /.row -->
+
+    </main>
+{% endblock %}
+
+
+
+{% block footer %}
+{% include 'commen/footer.html' %}
+{% endblock %}
+
+
+

@@ -3,12 +3,12 @@
 
 
 {% block title %}
-博客首页
+    博客首页
 {% endblock %}
 
 
 {% block nav %}
-{% include 'commen/header.html' %}
+    {% include 'commen/header.html' %}
 {% endblock %}
 
 
@@ -20,153 +20,81 @@
                 <div class="text-center main-banner-coontent">
                     <h1 class="display-4 text-white">欢迎来到娟娟的个人博客</h1>
                     <p class="my-3">学习总是在一点一滴中积累而成的，就像砌砖一样。让我们一起在娟娟博客一起成长吧！加油！成功是属于努力的人！</p>
-                    <a href="#" class="btn btn-danger mt-3 btn-rounded">加入这个大家庭</a>
+                    <a href="{% url 'user:register' %}" class="btn btn-danger mt-3 btn-rounded">加入这个大家庭</a>
                 </div>
             </div>
         </div>
     </div>
-
-{#    <div class="container">#}
-{#        <div class="row mb-2">#}
-{#            <div class="col-md-6">#}
-{#                <div class="card flex-md-row mb-4 box-shadow card-block">#}
-{#                    <img class="flex-auto d-none d-lg-block img-fluid" src="{% static 'assets/images/blog/blog-3.jpg' %}" alt="Card image cap">#}
-{#                    <div class="card-body d-flex flex-column align-items-start">#}
-{#                        <strong class="d-inline-block mb-2 text-primary">World</strong>#}
-{##}
-{#                        <h4 class="mb-0 card-title">#}
-{#                            <a class="text-dark " href="#">High Fashion Gallery art</a>#}
-{#                        </h4>#}
-{#                        <p class="text-muted">17th Jnauray 2018</p>#}
-{#                        <p class="card-text mb-auto mt-1">This is a wider card with supporting text below as a natural.</p>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{##}
-{#            <div class="col-md-6">#}
-{#                <div class="card flex-md-row mb-4 box-shadow card-block">#}
-{#                    <img class="flex-auto d-none d-lg-block img-fluid" src="{% static 'assets/images/blog/blog-2.jpg' %}" alt="Card image cap">#}
-{##}
-{#                    <div class="card-body d-flex flex-column align-items-start">#}
-{#                        <strong class="d-inline-block mb-2 text-success">Design</strong>#}
-{#                        <h4 class="mb-0 card-title">#}
-{#                            <a class="text-dark" href="#">Epitom Of Love </a>#}
-{#                        </h4>#}
-{#                        <p class="text-muted">17th Jnauray 2018</p>#}
-{#                        <p class="card-text mb-auto mt-1">This is a wider card with supporting text below as a natural.</p>#}
-{#                    </div>#}
-{##}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
 
     <main class="container">
         <div class="row">
             <div class="col-md-8 blog-main col-sm-7">
 
                 <div class="blog-post">
-{#                    <div class="blog-block-img">#}
-{#                        <img src="{% static 'assets/images/blog/blog-big.jpg' %}" alt="" class="img-fluid">#}
-{#                    </div>#}
-                    <p class="blog-post-cat">Fashion,Lifestyle</p>
                     <a href="#">
-                        <h2 class="blog-post-title">Only Photography What You Love Women Modelling </h2>
+                        <h2 class="blog-post-title">不忘初心！</h2>
                     </a>
 
 
-                    <p class="blog-post-meta"> <img src="{% static 'assets/images/blog/widget-3.jpg' %}" alt="" class="img-fluid small">January 1, 2014 by <a href="#">Mark</a></p>
-                    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                    <p class="blog-post-meta"><img src="{% static 'assets/images/blog/lala.jpg' %}" alt=""
+                                                   class="img-fluid small">2019-02-09</p>
+                    <p> 为他人，也为自己，为了技术点做点贡献。
+                        如果，大家以为这只是一个技术论坛，那你就错了。站长本人觉得除了技术以外，我们更多的是用技术去改变我们的生活。要说我们技术为啥，我想说，那肯定是为了更好的生活。所以，本论坛除技术交流外，专门开了一个热爱分享的版块。我希望能和大家一起来分享我们技术人的生活，及他们的世界。欢迎，大家的加入
+                        ^_^ ^_^ 人生的意义：活出自己的本色。 让我们一起来让自己的人生更加精彩。程序员，写文章，大家见笑了，欢迎吐槽 ^_^ ^_^ ^_^ ，本人微信及电话：15002855529</p>
 
-                    <a href="#" class="read-more">Continue Reading</a>
                 </div>
                 <!-- /.blog-post -->
-
-
-                <div class="blog-post">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="blog-post-thumbnail-zone">
-                                <img src="{% static 'assets/images/blog/pic-1.jpg' %}" alt="" class="img-fluid">
+                {% for foo in article %}
+                    <div class="blog-post">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="blog-post-thumbnail-zone">
+                                    <img src="{{ MEDIA_URL }}{{ foo.author.head }}" alt="" class="img-fluid">
+                                </div>
                             </div>
-                        </div>
-                        <div class=" col-lg-6">
-                            <div class="blog-post-content ">
-                                <p class="blog-post-cat mt0">Fashion,Lifestyle</p>
-                                <a href="#">
-                                    <h3>Only Photography What You Love Women Modelling </h3>
-                                </a>
+                            <div class=" col-lg-6">
+                                <div class="blog-post-content ">
+                                    <p class="blog-post-cat mt0">标签----{{ foo.tagid.tagname }}</p>
+                                    <a href="#">
+                                        <h3>标题:{{ foo.articletitle }}</h3>
+                                    </a>
+                                    <p class="blog-post-meta">发布时间：{{ foo.add_time }}</p>
+                                    <div style="height: 155px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">
+                                        <p style="overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">{{ foo.articlecontent|safe }}</p>
+                                    </div>
 
-                                <p class="blog-post-meta"> <img src="{% static 'assets/images/blog/widget-3.jpg' %}" alt="" class="img-fluid small">January 1, 2014 by <a href="#">Mark</a></p>
-                                <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-
-                                <a href="#" class="read-more">Continue Reading</a>
+                                    <a href="#" class="read-more">详情</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- /.blog-post LList -->
+                {% endfor %}
 
-                <div class="blog-post">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="blog-post-thumbnail-zone">
-                                <img src="{% static 'assets/images/blog/pic-2.jpg' %}" alt="" class="img-fluid">
-                            </div>
-                        </div>
-                        <div class=" col-lg-6">
-                            <div class="blog-post-content ">
-                                <p class="blog-post-cat mt0">Lifestyle</p>
-                                <a href="#">
-                                    <h3>Youtube Black and White Photography Ideas </h3>
-                                </a>
-
-                                <p class="blog-post-meta"> <img src="{% static 'assets/images/blog/widget-3.jpg' %}" alt="" class="img-fluid small">January 1, 2014 by <a href="#">Mark</a></p>
-                                <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-
-                                <a href="#" class="read-more">Continue Reading</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.blog-post LList -->
-
-{#                <div class="blog-post">#}
-{#                    <div class="blog-block-img">#}
-{#                        <img src="{% static 'assets/images/blog/inner-4.jpg' %}" alt="" class="img-fluid">#}
-{#                    </div>#}
-{#                    <p class="blog-post-cat">Fashion,Lifestyle</p>#}
-{#                    <a href="#">#}
-{#                        <h2 class="blog-post-title">Only Photography What You Love Women Modelling </h2>#}
-{#                    </a>#}
-
-
-{#                    <p class="blog-post-meta"> <img src="{% static 'assets/images/blog/widget-3.jpg' %}" alt="" class="img-fluid small">January 1, 2014 by <a href="#">Mark</a></p>#}
-{#                    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>#}
-
-{#                    <a href="#" class="read-more">Continue Reading</a>#}
-{#                </div>#}
-                <!-- /.blog-post -->
-
-                <!-- Blog Paginator -->
 
                 <nav aria-label="navigation ">
                     <ul class="pagination blog-pagination justify-content-end">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1">Older</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Newer</a>
-                        </li>
+                        {% if article.has_previous %}
+                            <li class="page-item disabled">
+                                <a class="page-link"
+                                   href="{% url 'article:home' %}?page={{ article.previous_page_number }}&tagname={{ tagindex }}"
+                                   tabindex="-1">Older</a>
+                            </li>
+                        {% endif %}
+                        {% for p in article.paginator.page_range %}
+                            <li class="page-item"><a class="page-link"
+                                                     href="{% url 'article:home' %}?page={{ p }}&tagname={{ tagindex }}">{{ p }}</a>
+                            </li>
+                        {% endfor %}
+                        {% if article.has_next %}
+                            <li class="page-item">
+                                <a class="page-link"
+                                   href="{% url 'article:home' %}?page={{ article.next_page_number }}&tagname={{ tagindex }}">Newer</a>
+                            </li>
+                        {% endif %}
                     </ul>
                 </nav>
-
             </div>
             <!-- /.blog-main -->
-
 
 
             <!-- blog-main SIDEBAR RIGHT -->
@@ -175,7 +103,8 @@
                 <div class="p-3 mb-3 bg-light rounded text-center">
                     <div class="top-header ">
                         <div class="input-group">
-                            <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="请输入文章关键字">
+                            <input type="text" class="form-control" id="inlineFormInputGroupUsername"
+                                   placeholder="请输入文章关键字">
                             <div class="input-group-prepend">
                                 <div class="input-group-text"><i class="fa fa-search"></i></div>
                             </div>
@@ -186,10 +115,11 @@
                 <div class="p-3 mb-3 bg-light rounded text-center">
                     <div class="sidebar-about">
                         <div class="about-img">
-                            <img src="{% static 'assets/images/blog/author.jpeg.jpg' %}" alt="" class="img-fluid rounded-circle">
+                            <img src="{% static 'assets/images/blog/lala.jpg' %}" alt=""
+                                 class="img-fluid rounded-circle">
                         </div>
-                        <h4 class="py-2">Hi! -That's Me</h4>
-                        <p class="mb-3">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+                        <h4 class="py-2">Hi! -这是我！</h4>
+                        <p class="mb-3">欲善其事，必先利其器。始终坚持天道酬勤的原则，一日三省，自信品格的日趋完善，勇于行事，务实求新。三更灯火，寒窗苦读，相信会学有所成。</p>
 
                         <ul class="list-inline social-link">
                             <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -202,24 +132,14 @@
                 </div>
 
                 <div class="py-3">
-                    <div class="sidebar-block">
-                        <h4 class="sidebar-title">Categories</h4>
-                        <ol class="list-unstyled mb-0">
-                            <li><a href="#">Fashion <span>(10)</span></a></li>
-                            <li><a href="#">Lifestyle <span>(5)</span></a></li>
-                            <li><a href="#">Hairstyle <span>(7)</span></a></li>
-                        </ol>
-                    </div>
-                </div>
-
-                <div class="py-3">
                     <div class="sidebar-block latest-post">
-                        <h4 class="sidebar-title">Latest Posts</h4>
+                        <h4 class="sidebar-title">最新帖子</h4>
                         <ol class="list-unstyled">
                             <li>
                                 <a href="#">
                                     <div class="rpost-img">
-                                        <img src="{% static 'assets/images/blog/widget-4.jpg' %}" alt="" class="img-fluid">
+                                        <img src="{% static 'assets/images/blog/widget-4.jpg' %}" alt=""
+                                             class="img-fluid">
                                     </div>
                                     <h5>High Fashion Black and White Photoshoot Art</h5>
                                     <p class="text-muted">20 June 2018 </p>
@@ -229,7 +149,8 @@
                             <li>
                                 <a href="#">
                                     <div class="rpost-img">
-                                        <img src="{% static 'assets/images/blog/widget-2.jpg' %}" alt="" class="img-fluid">
+                                        <img src="{% static 'assets/images/blog/widget-2.jpg' %}" alt=""
+                                             class="img-fluid">
                                     </div>
                                     <h5>Spanish Women are the Epitome of Beautiful</h5>
                                     <p class="text-muted">20 June 2018 </p>
@@ -239,7 +160,8 @@
                             <li>
                                 <a href="#">
                                     <div class="rpost-img">
-                                        <img src="{% static 'assets/images/blog/widget-3.jpg' %}" alt="" class="img-fluid">
+                                        <img src="{% static 'assets/images/blog/widget-3.jpg' %}" alt=""
+                                             class="img-fluid">
                                     </div>
                                     <h5>Beauty you lIfe with natural</h5>
                                     <p class="text-muted">20 June 2018</p>
@@ -249,7 +171,8 @@
                             <li>
                                 <a href="#">
                                     <div class="rpost-img">
-                                        <img src="{% static 'assets/images/blog/widget-1.jpg' %}" alt="" class="img-fluid">
+                                        <img src="{% static 'assets/images/blog/widget-1.jpg' %}" alt=""
+                                             class="img-fluid">
                                     </div>
                                     <h5>Spanish Women are the Epitome of Beautiful</h5>
                                     <p class="text-muted">20 June 2018</p>
@@ -262,52 +185,44 @@
 
                 <div class="py-3">
                     <div class="sidebar-block instagram">
-                        <h4 class="sidebar-title">Instagram</h4>
+                        <h4 class="sidebar-title">Top 博主</h4>
 
                         <div class="instgram-posts">
-                            <a href="#"><img src="{% static 'assets/images/blog/widget-1.jpg' %}" alt="" class="img-fluid"></a>
-                            <a href="#"><img src="{% static 'assets/images/blog/widget-2.jpg' %}" alt="" class="img-fluid"></a>
-                            <a href="#"><img src="{% static 'assets/images/blog/widget-3.jpg' %}" alt="" class="img-fluid"></a>
-                            <a href="#"><img src="{% static 'assets/images/blog/widget-4.jpg' %}" alt="" class="img-fluid"></a>
-                            <a href="#"><img src="{% static 'assets/images/blog/widget-1.jpg' %}" alt="" class="img-fluid"></a>
-                            <a href="#"><img src="{% static 'assets/images/blog/widget-2.jpg' %}" alt="" class="img-fluid"></a>
-                            <a href="#"><img src="{% static 'assets/images/blog/widget-3.jpg' %}" alt="" class="img-fluid"></a>
-                            <a href="#"><img src="{% static 'assets/images/blog/widget-4.jpg' %}" alt="" class="img-fluid"></a>
-                            <a href="#"><img src="{% static 'assets/images/blog/widget-1.jpg' %}" alt="" class="img-fluid"></a>
+                            <a href="#"><img src="{% static 'assets/images/blog/widget-1.jpg' %}" alt=""
+                                             class="img-fluid"></a>
+                            <a href="#"><img src="{% static 'assets/images/blog/widget-2.jpg' %}" alt=""
+                                             class="img-fluid"></a>
+                            <a href="#"><img src="{% static 'assets/images/blog/widget-3.jpg' %}" alt=""
+                                             class="img-fluid"></a>
+                            <a href="#"><img src="{% static 'assets/images/blog/widget-4.jpg' %}" alt=""
+                                             class="img-fluid"></a>
+                            <a href="#"><img src="{% static 'assets/images/blog/widget-1.jpg' %}" alt=""
+                                             class="img-fluid"></a>
+                            <a href="#"><img src="{% static 'assets/images/blog/widget-2.jpg' %}" alt=""
+                                             class="img-fluid"></a>
+                            <a href="#"><img src="{% static 'assets/images/blog/widget-3.jpg' %}" alt=""
+                                             class="img-fluid"></a>
+                            <a href="#"><img src="{% static 'assets/images/blog/widget-4.jpg' %}" alt=""
+                                             class="img-fluid"></a>
+                            <a href="#"><img src="{% static 'assets/images/blog/widget-1.jpg' %}" alt=""
+                                             class="img-fluid"></a>
                         </div>
                     </div>
                 </div>
 
                 <div class="py-3">
                     <div class="">
-                        <h4 class="sidebar-title">Tags</h4>
+                        <h4 class="sidebar-title">标签</h4>
                         <div class="list-unstyled mb-0 tags-cloud">
-                            <a href="#">Beauty</a>
-                            <a href="#">fashion</a>
-                            <a href="#">Hair</a>
-                            <a href="#">Makeup</a>
-                            <a href="#">Life</a>
-                            <a href="#">Sunshine</a>
-                            <a href="#">Light</a>
-                            <a href="#">fashion</a>
-                            <a href="#">Hair</a>
-                            <a href="#">Makeup</a>
-                            <a href="#">Life</a>
-                            <a href="#">Sunshine</a>
-                            <a href="#">Light</a>
+                            <a href="#">ui</a>
+                            <a href="#">前端</a>
+                            <a href="#">java</a>
+                            <a href="#">python</a>
+                            <a href="#">php</a>
+                            <a href="#">.net</a>
+                            <a href="#">数据库</a>
+                            <a href="#">测试</a>
                         </div>
-                    </div>
-                </div>
-
-                <div class="py-3">
-                    <div class="bg-light text-center subscribe">
-                        <h4 class="sidebar-title">Subscribe Now</h4>
-                        <p class="text-muted">Subscribe For latest Newsletter</p>
-                        <form action="#">
-                            <input type="text" class="form-control" placeholder="Type Your Email here">
-                            <a href="#" class="btn btn-sm  btn-danger btn-rounded">Subscribe</a>
-                        </form>
-                        <p class="font-italic">Don't worry ! We don't spam</p>
                     </div>
                 </div>
 
@@ -318,67 +233,12 @@
 
     </main>
     <!-- /.container -->
-    <div class="popular-wrap">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 mx-auto">
-                    <div class="post-header border-bottom text-center">
-                        <h3 class="">Popular post</h3>
-                        <p>Obcaecati voluptatem hic ducimus maiores accusantium adipisci aspernatur accusantium adipisci aspernatur.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-3 col-sm-6">
-                    <a class="popular-post" href="">
-                    <img src="{% static 'assets/images/blog/blog-img1.jpg' %}" alt="" class="img-fluid">
-
-                    <div class="post-content">
-                        <h4 class="ptitle"> Messenger Women's Leather Bag Design Idea</h4>
-                        <p class="text-muted">January 16, 2018</p>
-                    </div>
-                 </a>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <a class="popular-post" href="">
-                    <img src="{% static 'assets/images/blog/blog-img2.jpg' %}" alt="" class="img-fluid">
-
-                    <div class="post-content">
-                        <h4 class="ptitle"> Messenger Women's Leather Bag Design Idea</h4>
-                        <p class="text-muted">January 16, 2018</p>
-                    </div>
-                 </a>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <a class="popular-post" href="">
-                    <img src="{% static 'assets/images/blog/blog-img3.jpg' %}" alt="" class="img-fluid">
-
-                    <div class="post-content">
-                        <h4 class="ptitle"> Messenger Women's Leather Bag Design Idea</h4>
-                        <p class="text-muted">January 16, 2018</p>
-                    </div>
-                 </a>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <a class="popular-post" href="">
-                    <img src="{% static 'assets/images/blog/blog-img1.jpg' %}" alt="" class="img-fluid">
-
-                    <div class="post-content">
-                        <h4 class="ptitle"> Messenger Women's Leather Bag Design Idea</h4>
-                        <p class="text-muted">January 16, 2018</p>
-                    </div>
-                 </a>
-                </div>
-            </div>
-        </div>
-    </div>
 {% endblock %}
 
 
 
 {% block footer %}
-{% include 'commen/footer.html' %}
+    {% include 'commen/footer.html' %}
 {% endblock %}
 
 

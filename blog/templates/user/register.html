@@ -1,0 +1,66 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>博客注册</title>
+    <meta name="keywords" content="注册">
+    <meta name="content" content="注册">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <link type="text/css" rel="stylesheet" href="{% static 'assets/css/login.css' %}">
+    <script type="text/javascript" src="{% static 'assets/js/jquery.min.js' %}"></script>
+</head>
+<body class="login_bj" style="background:url({% static 'assets/images/login/bj_zhuce.jpg' %}) no-repeat top center;">
+
+<div class="zhuce_body">
+    <div class="logo"></div>
+    <div class="zhuce_kong">
+        <div class="zc" style="height: 500px;">
+            <div class="bj_bai" style="height: 500px;">
+                <h3>欢迎注册</h3>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <input name="nickname" value="{{ request.POST.nickname }}" type="text" class="kuang_txt phone" placeholder="昵称">
+                    <p>{{ form.errors.nickname }}</p>
+                    <input name="email" value="{{ request.POST.email }}" type="text" class="kuang_txt phone" placeholder="邮箱">
+                    <p>{{ form.errors.email }}</p>
+                    <input name="password" value="{{ request.POST.password }}" type="password" class="kuang_txt possword" placeholder="密码">
+                    <p>{{ form.errors.password }}</p>
+                    <input name="repassword" value="{{ request.POST.repassword }}" type="password" class="kuang_txt possword" placeholder="确认密码">
+                    <p>{{ form.errors.repassword }}</p>
+                    <input name="yzm" type="text" class="kuang_txt yanzm" placeholder="验证码">
+                    <p>{{ form.errors.yzm }}</p>
+                    <div>
+                        <div class="hui_kuang" style="background-image: url('{% static 'assets/images/login/codebj.jpg' %}'); color: #ff6283; font-size: 20px; text-align: center;">
+                            {{ code }}
+                        </div>
+                        <div class="shuaxin">
+                                <img src="{% static 'assets/images/login/zc_25.jpg' %}" width="13" height="14">
+                        </div>
+                    </div>
+                    <div>
+                        <input name="checkbox" type="checkbox" value="1" checked><span>已阅读并同意<a href="#" target="_blank"><span
+                            class="lan">《博客使用协议》</span></a></span>
+                        <p>{{ form.errors.checkbox }}</p>
+                    </div>
+                    <input type="submit" class="btn_zhuce" value="注册">
+
+                </form>
+            </div>
+            <div class="bj_right" style="height: 500px;">
+                <p>使用以下账号直接登录</p>
+                <a href="#" class="zhuce_qq">QQ注册</a>
+                <a href="#" class="zhuce_wb">微博注册</a>
+                <a href="#" class="zhuce_wx">微信注册</a>
+                <p>已有账号？<a href="{% url 'user:login' %}">立即登录</a></p>
+
+            </div>
+        </div>
+        <P>juanjuan blog&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欢迎您注册！</P>
+    </div>
+
+</div>
+
+
+</body>
+</html>

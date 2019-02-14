@@ -15,6 +15,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 import sys
+
 # 在BASE_DIR后面添加
 # 将apps 加入到环境 的包查找路径第一位置
 sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
@@ -30,7 +31,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -40,7 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'article'
+    'article',  # 文章（帖子）
+    'user',  # 用户
+    'ckeditor',  # 添加ckeditor富文本编辑器
+    'ckeditor_uploader',  # 添加ckeditor富文本编辑器文件上传部件
+    'tinymce',  # 模板使用的富文本编辑器
+    'django_summernote',  # 添加summernote富文本编辑器
 ]
 
 MIDDLEWARE = [
@@ -67,13 +72,14 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # 让模板中使用{{MEDIA_URL}}
+                'django.template.context_processors.media',
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'blog.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
@@ -84,7 +90,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -104,19 +109,19 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-
+# LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-hans'
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+# USE_TZ = True
+USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
@@ -125,3 +130,69 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+# 设置静态文件根目录  上线的时候使用
+# STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+
+# 图片
+MEDIA_URL = "/static/media/"  # 跟STATIC_URL类似，指定用户可以通过这个路径找到文件
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')  # blog是项目名，media是约定成俗的文件夹名
+
+
+# 将session保存到redis数据库(先做登录)
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "default"
+
+# 设置富文本ckeditor的上传目录
+CKEDITOR_UPLOAD_PATH = "uploads/"
+# 富文本编辑器样式配置
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+    },
+}
+
+# 前端使用的富文本编辑器
+# DEFAULT_CONFIG = {'theme': "advanced", 'relative_urls': False, 'width': '1200', 'height': '500'}
+TINYMCE_DEFAULT_CONFIG = {
+    # // General options
+    'mode': 'textareas',
+    'theme': "advanced",
+    'plugins': "pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave",
+
+    # // Theme  options
+    'theme_advanced_buttons1': "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect,fullscreen,code",
+    'theme_advanced_buttons2': "cut,copy,paste,pastetext,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,|,insertdate,inserttime,preview,|,forecolor,backcolor",
+    'theme_advanced_buttons3': "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl",
+    'theme_advanced_toolbar_location': "top",
+    'theme_advanced_toolbar_align': "left",
+    'theme_advanced_statusbar_location': "bottom",
+    'theme_advanced_resizing': 'true',
+
+    # // content_css: "/css/style.css",
+    'template_external_list_url': "lists/template_list.js",
+    'external_link_list_url': "lists/link_list.js",
+    'external_image_list_url': "lists/image_list.js",
+    'media_external_list_url': "lists/media_list.js",
+
+    # // Style formats
+    'style_formats': [
+        {'title': 'Bold text', 'inline': 'strong'},
+        {'title': 'Red text', 'inline': 'span', 'styles': {'color': '#ff0000'}},
+        {'title': 'Help', 'inline': 'strong', 'classes': 'help'},
+        {'title': 'Table styles'},
+        {'title': 'Table row 1', 'selector': 'tr', 'classes': 'tablerow'}
+    ],
+    'width': '1400',
+    'height': '800',
+}

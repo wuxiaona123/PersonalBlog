@@ -18,5 +18,12 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include('article.urls')),
+    # summernote富文本编辑器
+    url(r'^summernote/', include('django_summernote.urls')),
+    # 上传部件自动调用的上传地址,ckeditor富文本编辑器
+    url(r'^ckeditor/', include("ckeditor_uploader.urls")),
+    # 文章（帖子）
+    url(r'^', include('article.urls', namespace='article')),
+    # 用户
+    url(r'^user/', include('user.urls', namespace='user')),
 ]
