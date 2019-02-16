@@ -36,7 +36,7 @@
                     </a>
 
 
-                    <p class="blog-post-meta"><img src="{% static 'assets/images/blog/lala.jpg' %}" alt=""
+                    <p class="blog-post-meta"><img src="{% static 'assets/images/blog/la.jpg' %}" alt=""
                                                    class="img-fluid small">2019-02-09</p>
                     <p> 为他人，也为自己，为了技术点做点贡献。
                         如果，大家以为这只是一个技术论坛，那你就错了。站长本人觉得除了技术以外，我们更多的是用技术去改变我们的生活。要说我们技术为啥，我想说，那肯定是为了更好的生活。所以，本论坛除技术交流外，专门开了一个热爱分享的版块。我希望能和大家一起来分享我们技术人的生活，及他们的世界。欢迎，大家的加入
@@ -63,7 +63,7 @@
                                         <p style="overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">{{ foo.articlecontent|safe }}</p>
                                     </div>
 
-                                    <a href="#" class="read-more">详情</a>
+                                    <a href="{% url 'article:details' foo.pk %}" class="read-more">详情</a>
                                 </div>
                             </div>
                         </div>
@@ -115,7 +115,7 @@
                 <div class="p-3 mb-3 bg-light rounded text-center">
                     <div class="sidebar-about">
                         <div class="about-img">
-                            <img src="{% static 'assets/images/blog/lala.jpg' %}" alt=""
+                            <img src="{% static 'assets/images/blog/la.jpg' %}" alt=""
                                  class="img-fluid rounded-circle">
                         </div>
                         <h4 class="py-2">Hi! -这是我！</h4>
@@ -214,14 +214,9 @@
                     <div class="">
                         <h4 class="sidebar-title">标签</h4>
                         <div class="list-unstyled mb-0 tags-cloud">
-                            <a href="#">ui</a>
-                            <a href="#">前端</a>
-                            <a href="#">java</a>
-                            <a href="#">python</a>
-                            <a href="#">php</a>
-                            <a href="#">.net</a>
-                            <a href="#">数据库</a>
-                            <a href="#">测试</a>
+                            {% for foo in tag %}
+                                <a href="#">{{ foo.tagname }}</a>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>

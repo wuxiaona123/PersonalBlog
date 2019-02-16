@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from article.views import Home, Publish, Summernoteimg,Details
+from article.views import Home, Publish, Summernoteimg,Details,Post_commentView
 
 urlpatterns = [
     # 首页
@@ -9,5 +9,8 @@ urlpatterns = [
     # summernote编辑器上传图片
     url(r'^summernoteimg/$', Summernoteimg.as_view(), name='summernoteimg'),
     # 详情
-    url(r'^details/$', Details.as_view(), name='details'),
+    url(r'^details/(?P<id>\d+)$', Details.as_view(), name='details'),
+    # 评论
+    url(r'^comment/(?P<post_pk>[0-9]+)/$', Post_commentView.as_view(), name='文章评论'),
+
 ]

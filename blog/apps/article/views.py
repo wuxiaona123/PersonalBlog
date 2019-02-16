@@ -1,9 +1,9 @@
 from django.http import HttpResponse, JsonResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 
-from article.forms import SummernoteForm
-from article.models import TagModels, ArticleModels
+from article.forms import SummernoteForm, CommentForm
+from article.models import TagModels, ArticleModels, Comment
 from user.models import UserModels
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
@@ -44,8 +44,9 @@ class Home(View):
         except EmptyPage:
             # 页码为超出范围 显示最后一页
             itemss = paginator.page(paginator.num_pages)
-            # 合成响应    准备数据渲染页面
 
+        tags = TagModels.objects.filter()
+        # 合成响应    准备数据渲染页面
         context = {
             # 贴子数据
             "article": itemss,
@@ -53,6 +54,8 @@ class Home(View):
             "tagindex": tagname,
             # 标签名字
             "tagname": tag[tagname],
+            # 所有标签
+            "tag": tags,
         }
         return render(request, 'article/index.html', context=context)
 
@@ -128,5 +131,50 @@ class Summernoteimg(View):
 
 # 详情
 class Details(View):
-    def get(self, request):
-        return render(request, 'article/details.html')
+    def get(self, request, id):
+        try:
+            artic = ArticleModels.objects.get(pk=id)
+        except:
+            return HttpResponse('没有此文章')
+        myartic = ArticleModels.objects.filter(author=artic.author)
+        comment_list = Comment.objects.filter(post_id=id, is_delete=False)
+        context = {'artic': artic, 'myartic': myartic, 'comment_list': comment_list}
+        return render(request, 'article/details.html', context=context)
+
+
+# 发表评论
+class Post_commentView(View):
+    def post(self, request, post_pk):
+        try:
+            post = ArticleModels.objects.filter(pk=post_pk,
+                                                is_delete=False
+                                                )
+        except ArticleModels.DoesNotExist:
+            return redirect('article:home')
+
+        # 接收参数
+        data = request.POST
+        form = CommentForm(data)
+
+        # 接收用户的id
+        user_id = request.session.get("id")
+        # 验证数据的合法性
+        if form.is_valid():
+            # 获取清洗后的数据
+            cleaned = form.cleaned_data
+            # 取出清洗后的评论
+            text = cleaned.get('text')
+            # 保存到数据库
+            Comment.objects.create(text=text, post_id=post_pk, users_id=user_id)
+
+            artic = ArticleModels.objects.get(pk=post_pk)
+            myartic = ArticleModels.objects.filter(author=artic.author_id)
+            comment_list = Comment.objects.filter(post_id=post_pk, is_delete=False)
+            context = {'artic': artic, 'myartic': myartic, 'comment_list': comment_list}
+            return render(request, 'article/details.html', context=context)
+        else:
+            artic = ArticleModels.objects.get(pk=post_pk)
+            myartic = ArticleModels.objects.filter(author=artic.author_id)
+            comment_list = Comment.objects.filter(post_id=post_pk, is_delete=False)
+            context = {'artic': artic, 'myartic': myartic, 'form': form, 'comment_list': comment_list}
+            return render(request, 'article/details.html', context=context)

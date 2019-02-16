@@ -42,3 +42,20 @@ class ArticleModels(BaseModel):
         db_table = "article"  # 表名
         verbose_name = '文章表'
         verbose_name_plural = verbose_name
+
+
+
+# 评论模型
+class Comment(BaseModel):
+    text = models.TextField(verbose_name='评论内容')
+    post = models.ForeignKey('ArticleModels', verbose_name='评论文章')
+    # 一对多
+    users = models.ForeignKey('user.UserModels', verbose_name='评论人')
+
+    def __str__(self):
+        return self.text[:20]
+
+    class Meta:
+        db_table = "comment"  # 表名
+        verbose_name = "评论区管理"
+        verbose_name_plural = verbose_name

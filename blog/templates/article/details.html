@@ -2,17 +2,64 @@
 {% load static %}
 
 {% block title %}
-详情
+    详情
+{% endblock %}
+{% block headlink %}
+    <style>
+        .comment-area {
+            padding: 0 30px 0;
+        }
+
+        .comment-form {
+            margin-top: 15px;
+        }
+
+        .comment-form .comment-btn {
+            background-color: #fff;
+            border: 1px solid #aaa;
+            font-size: 16px;
+            padding: 5px 10px;
+        }
+
+        .comment-list-panel {
+            margin-top: 30px;
+        }
+
+        .comment-list {
+            margin-top: 15px;
+        }
+
+        .comment-item:not(:last-child) {
+            border-bottom: 1px #ccc solid;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+        }
+
+        .comment-item .nickname,
+        .comment-item .submit-date {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .comment-item .nickname:after {
+            content: ' ·';
+        }
+
+        .comment-item .text {
+            padding-top: 5px;
+            font-size: 16px;
+        }
+
+    </style>
 {% endblock %}
 
-
 {% block nav %}
-{% include 'commen/header.html' %}
+    {% include 'commen/header.html' %}
 {% endblock %}
 
 
 {% block content %}
-      <div class="page-header jumbotron p-3 p-md-5 text-white">
+    <div class="page-header jumbotron p-3 p-md-5 text-white">
         <div class="dark-overlay"></div>
         <div class="container">
             <div class="col-md-6 px-0 mx-auto ">
@@ -31,37 +78,72 @@
                 <div class="p-3 mb-3 bg-light rounded text-center">
                     <div class="sidebar-about">
                         <div class="about-img">
-                            <img src="{% static 'assets/images/blog/lala.jpg' %}" alt="" class="img-fluid rounded-circle">
+                            <img src="{{ MEDIA_URL }}{{ artic.author.head }}" alt="" class="img-fluid rounded-circle">
                         </div>
                         <h4 class="py-2">作者简介</h4>
-                        <p class="mb-3">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.（以后2.0版本，个人中心可修改个人资料）</p>
+                        <p class="mb-3">
+                        <p>昵称：{{ artic.author.nickname }}</p>
+                        <em>个人介绍：</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia
+                        bibendum nulla sed consectetur.（以后2.0版本，个人中心可修改个人资料）</p>
 
                     </div>
                 </div>
                 <div class="py-3">
                     <div class="sidebar-block">
-                        <h4 class="sidebar-title">贴子</h4>
+                        <h4 class="sidebar-title">历史贴子</h4>
                         <ol class="list-unstyled mb-0">
-                            <li><a href="#">python <span>(10)</span></a></li>
-                            <li><a href="#">前端 <span>(5)</span></a></li>
-                            <li><a href="#">java <span>(7)</span></a></li>
+                            {% for foo in myartic %}
+                                <li><a href="{% url 'article:details' foo.pk %}">贴子：{{ foo.articletitle }}</a></li>
+                            {% endfor %}
                         </ol>
                     </div>
                 </div>
             </aside>
             <!-- /.blog-sidebar -->
+            <!--  -->
 
             <div class="col-md-8 blog-main col-sm-7">
                 <div class="blog-post">
-                    <p class="blog-post-cat">是什么标签</p>
+                    <p class="blog-post-cat">标签:{{ artic.tagid.tagname }}</p>
                     <a href="#">
-                        <h2 class="blog-post-title">帖子标题</h2>
+                        <h2 class="blog-post-title">标题:{{ artic.articletitle }}</h2>
                     </a>
-                    <p class="blog-post-meta"> 创建时间：January 1, 2014 by <a href="#">Mark</a></p>
-                    <div>放富文本</div>
+                    <p class="blog-post-meta"> 创建时间：{{ artic.add_time }}</p>
+                    <div>{{ artic.articlecontent|safe }}</div>
                 </div>
-                <!-- /.blog-post -->
+                {#            发表评论#}
+                <section class="comment-area" id="comment-area">
+                    <hr>
+                    <h3>发表评论</h3>
+                    <form action="{% url 'article:文章评论' artic.pk %}" method="post" class="comment-form">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="id_comment">评论：</label>
+                                <textarea class="form-control" rows="5" name="text" id="id_comment" required></textarea>
+                                <button type="submit" class="comment-btn">发表</button>
+                            </div>
+                        </div>
+                    </form>
 
+                    <div class="comment-list-panel">
+                        <h3>评论列表，共 <span>{{ comment_list.count }}</span> 条评论</h3>
+                        <ul class="comment-list list-unstyled">
+                            {% for comment in comment_list %}
+                                <li class="comment-item">
+                                    <span class="nickname">{{ comment.users.nickname }}:</span>
+                                    <img style="height: 50px;" src="{{ MEDIA_URL }}{{ comment.users.head }}" alt="">
+                                    <time class="submit-date"
+                                          datetime="">{{ comment.add_time }}
+                                    </time>
+                                    <div class="text">
+                                        评论：{{ comment.text }}
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </section>
             </div>
             <!-- /.blog-main -->
         </div>
@@ -73,7 +155,7 @@
 
 
 {% block footer %}
-{% include 'commen/footer.html' %}
+    {% include 'commen/footer.html' %}
 {% endblock %}
 
 
